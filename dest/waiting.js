@@ -136,6 +136,18 @@
 					}
 					submit();
 				});
+
+				$("#emotionsList").emotions({ handle: null, style: null });
+
+				/////// SET EMOTION
+				$('#btnPopupEmotion').popover({
+					html: true,
+					content: function content() {
+						return $("#emotionsList").html();
+					},
+					placement: 'top',
+					title: 'Icon List'
+				});
 			}
 		}, {
 			key: 'setEventAuthen',
@@ -357,11 +369,14 @@
 				}
 
 				var htmlUser = '';
+
 				if (this.user.uid != message.user_uid && this.last_user_uid != message.user_uid) {
 					htmlUser = '<div class="message-user">' + message.user + '</div>';
 				}
 				var content = message.content;
-				var html = '<div class="' + classMessage + '">\n\t\t\t\t\t\t' + htmlUser + '\n\t\t\t\t\t\t<div class="message-content">' + content + '</div>\n\t\t\t\t\t</div><div class="clearfix" />';
+				// var htmlContent =  $(content).emotions();
+				// console.log(htmlContent)
+				var html = '<div id="' + message.key + '" class="' + classMessage + '">\n\t\t\t\t\t\t' + htmlUser + '\n\t\t\t\t\t\t<div class="message-content">' + content + '</div>\n\t\t\t\t\t</div><div class="clearfix" />';
 				return html;
 			}
 		}, {
@@ -370,6 +385,8 @@
 				var html = this.htmlMessage(message);
 				this.last_user_uid = message.user_uid;
 				this.container.append(html);
+				// $(`#${message.key} .message-content`).emoticonize();
+				$('#' + message.key + ' .message-content').emotions({ handle: null, css: null });
 			}
 		}, {
 			key: 'scroll',
@@ -410,7 +427,9 @@
 				var self = this;
 
 				lastMessage.on('child_added', function (data) {
-					self.messageRender.add(data.val());
+					var obj = data.val();
+					obj.key = data.key;
+					self.messageRender.add(obj);
 					self.messageRender.scroll();
 				});
 

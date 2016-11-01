@@ -31,7 +31,17 @@ class Waitingontroller{
 		  	submit();
 		});
 
+		$("#emotionsList").emotions({handle: null, style: null});
 
+		/////// SET EMOTION
+		$('#btnPopupEmotion').popover({
+	        html : true, 
+	        content: function() {
+	          return $("#emotionsList").html();
+	        },
+	        placement: 'top',
+	        title: 'Icon List'
+	    });
 	}
 
 	setEventAuthen(){

@@ -5,7 +5,6 @@
 <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-
       <style>
       	.tab-pane{
       		border-right: 1px solid #ccc;
@@ -27,11 +26,11 @@
       	}
       	.btn-send{
       		position: absolute;
-		    right: 0;
-		    top: 3px;
-		    width: 28px;
-		    height: 28px;
-		    text-align: center;
+  		    right: 0;
+  		    bottom: 3px;
+  		    width: 28px;
+  		    height: 28px;
+  		    text-align: center;
 		/*    background-color: #337ab7;
 		    color: white;*/
 		    /*border-radius: 50%;*/
@@ -128,9 +127,9 @@
 		    	</div>
 
 		    	<div class="message-sender" id="publicSender">
-		    		<!-- <div class="message-toolbar">
-		    			<i class="fa fa-underline"></i>
-		    		</div> -->
+		    		<div class="message-toolbar">
+		    			 <button id="btnPopupEmotion" class="btn btn-xs"><i class="fa fa-bug"></i></button>
+		    		</div>
 
 		    		<input id="inputMessageContent" rows="3" class="form-control" />
 		    		<a id="btnSendMessage" class="btn-send"><i class="fa fa-send"></i></a>
@@ -167,23 +166,20 @@
 
 		    </div>
 		  </div>
-
-
-
-
-
-
 		 </div> 
 	</div>
 </div>
 
 
 
+<div class="hidden" id="emotionsList"> >:) :)) /:) <):) :)] :) :(( :( ;;) ;) >:D< :D :-SS #:-S :-? >:P :P (:| :| :-/ :-* =(( ~X( B-) :-S =)) O:-) :-B =; 8-| L-) :-& :-$ [-( :O) 8-} 
+<:-P :x =P~ #-o =D> @-) :^o :-w :-< :-O :> :-c X( :-h 8-> </div>
+
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/underscore.min.js"></script>
-
+<script src="js/jemotion.js" ></script>
 <script src="https://www.gstatic.com/firebasejs/3.0.4/firebase.js"></script>
-<script type = "text/javascript" src = "dest/waiting.js"></script>
+<script src="dest/waiting.js"></script>
 </body>
 </html>
